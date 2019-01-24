@@ -23,8 +23,35 @@ end
 
 def modify(turn, turn_player)
 	@game_hash[turn] = turn_player
-	self.save
+	self.save(@game_hash)
 end
 
+def victory
+	if (@game_hash["a1"] == @game_hash["a2"]) && (@game_hash["a1"] == @game_hash["a3"]) && @game_hash["a1"] != nil
+		return true 
+	elsif (@game_hash["b1"] == @game_hash["b2"]) && (@game_hash["b1"] == @game_hash["b3"]) && @game_hash["b3"] != nil
+		return true 
+	elsif (@game_hash["c1"] == @game_hash["c2"]) && (@game_hash["c1"] == @game_hash["c3"]) && @game_hash["c3"] != nil
+		return true 
+	elsif (@game_hash["a1"] == @game_hash["b1"]) && (@game_hash["a1"] == @game_hash["c1"]) && @game_hash["c1"] != nil
+		return true 
+	elsif (@game_hash["a2"] == @game_hash["b2"]) && (@game_hash["a2"] == @game_hash["c2"]) && @game_hash["c2"] != nil
+		return true 
+	elsif (@game_hash["a3"] == @game_hash["b3"]) && (@game_hash["a3"] == @game_hash["c3"]) && @game_hash["c3"] != nil
+		return true 
+	elsif (@game_hash["a1"] == @game_hash["b2"])&& (@game_hash["a1"] == @game_hash["c3"]) && @game_hash["c3"] != nil
+		return true 
+	elsif (@game_hash["a3"] == @game_hash["b2"]) && (@game_hash["a3"] == @game_hash["c1"]) && @game_hash["c1"] != nil
+		return true 
+	else 
+		return false
+	end
+end
 
+def draw 
+	if @game_hash["a1"] != nil && @game_hash["a2"] != nil && @game_hash["a3"] != nil && @game_hash["b1"] != nil && @game_hash["b2"] != nil && @game_hash["b3"] != nil && @game_hash["c1"] != nil && @game_hash["c2"] != nil && @game_hash["c3"] != nil 
+		return true 
+	end 
+
+end
 end
