@@ -12,6 +12,7 @@ attr_accessor :controller
 
       #on affiche le menu
       puts "Veux-tu commencer une nouvelle partie ?"
+      puts "1 pour oui ; 2 pour non "
       new_game = gets.chomp.to_i #on attend le choix de l'utilisateur
 
       case new_game #en fonction du choix
